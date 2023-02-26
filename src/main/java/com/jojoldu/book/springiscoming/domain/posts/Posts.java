@@ -1,5 +1,6 @@
 package com.jojoldu.book.springiscoming.domain.posts;
 
+import com.jojoldu.book.springiscoming.domain.BaseTimeEntity;
 import lombok.Builder;      // 해당 클래스의 빌더 패턴 클래스 생성. 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함.
 import lombok.Getter;       // getter 자동생성 어노테이션
 import lombok.NoArgsConstructor;        // 기본생성자(public Posts(){}) 자동생성
@@ -16,7 +17,7 @@ import javax.persistence.Id;      // 해당 테이블의 PK필드를 나타냄
 
 // Posts 클래스는 Entity 클래스로서 절대 Setter 메소드를 만들지 않음. 클래스의 인스턴스값들이 언제 어디서 변하는지 코드상으로 명확히 구분할 수 없기 때문.
 // 필드값 변경이 필요하면 Setter 대신 의도를 명확히 나타낼 수 있는 메소드(ex. cancelOrder())를 추가할 것
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,5 +35,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
