@@ -19,7 +19,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 //Web(Spring MVC)에 집중할 수 있는 어노테이션, @Controller, @ControllerAdvice 사용가능
 //하지만 @Service, @Component, @Repository 는 사용불가
-@WebMvcTest
+// api 까지 작성할 경우 테스트가 실패함. 아래처럼 helloController로 범위를 지정해주고 메인 클래스 가서 jpa 어노테이션 주석처리해주면 다시 테스트됨
+@WebMvcTest(controllers = HelloController.class)
 public class HelloControllerTest {
 
     // 스프링이 관리하는 빈(Bean) 주입 받음
