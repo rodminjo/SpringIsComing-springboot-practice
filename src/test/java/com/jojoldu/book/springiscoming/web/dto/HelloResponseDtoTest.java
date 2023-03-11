@@ -1,7 +1,8 @@
 package com.jojoldu.book.springiscoming.web.dto;
 
 // junit.assertThat vs AssertJ
-// coreMatchers 와 달리 추가적으로 라이브러리가 필요하지 않음, 자동완성이 좀 더 확실하게 지원됨.
+// junit은 coreMatchers 라이브러리가 필요한 것과 달리 AssertJ는 추가적으로 라이브러리가 필요하지 않음, 자동완성이 좀 더 확실하게 지원됨.
+// 하지만 AssertThrows 등을 사용하려면 junit 사용할 것.
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 

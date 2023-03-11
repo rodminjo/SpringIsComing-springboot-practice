@@ -32,14 +32,15 @@ public class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 본문";
 
-        postsRepository.save(Posts.builder()        // postsRepository.save : 테이블 posts에 insert/update 쿼리 실행, id값이 있다면 update, 없다면 insert 실행.
+        Posts buildPort = Posts.builder()        // postsRepository.save : 테이블 posts에 insert/update 쿼리 실행, id값이 있다면 update, 없다면 insert 실행.
                 .title(title)
                 .content(content)
                 .author("jojoldu@gmail.com")
-                .build());
+                .build();
+        postsRepository.save(buildPort);
 
         //when
-        List<Posts> postsList = postsRepository.findAll();      // 테이블 posts 에 있는 모든 데이터 조회 메소드
+        List<Posts> postsList = postsRepository.findAll();// 테이블 posts 에 있는 모든 데이터 조회 메소드
 
         //then
         Posts posts = postsList.get(0);
@@ -67,6 +68,7 @@ public class PostsRepositoryTest {
 
         // 위에서 설정한 now 보다 이후이면 테스트 통과
         assertThat(posts.getCreatedDate()).isAfter(now);
+        assertThat(posts.getModifiedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
     }
 }

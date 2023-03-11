@@ -14,7 +14,7 @@ import javax.persistence.Id;      // 해당 테이블의 PK필드를 나타냄
 @Getter
 @NoArgsConstructor
 @Entity     // 웬만하면 Entity의 PK는 Long 타입의 Auto_imcrement 추천. 주민번호같은 유니크 키나 여러 키를 조합한 복합키로 pk를 잡으면 난감할 수 있음.
-
+// BaseTimeEntity : 모든 Entity의 상위 클래스에서 createdDate, updateDate를 자동으로 관리해주는 역할
 // Posts 클래스는 Entity 클래스로서 절대 Setter 메소드를 만들지 않음. 클래스의 인스턴스값들이 언제 어디서 변하는지 코드상으로 명확히 구분할 수 없기 때문.
 // 필드값 변경이 필요하면 Setter 대신 의도를 명확히 나타낼 수 있는 메소드(ex. cancelOrder())를 추가할 것
 public class Posts extends BaseTimeEntity {
