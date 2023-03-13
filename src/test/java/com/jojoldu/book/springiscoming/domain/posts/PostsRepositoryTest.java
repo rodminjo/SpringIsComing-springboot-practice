@@ -69,6 +69,5 @@ public class PostsRepositoryTest {
         // 위에서 설정한 now 보다 이후이면 테스트 통과
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
-        assertThat(posts.getModifiedDate()).isAfter(now);
-    }
+         }
 }
